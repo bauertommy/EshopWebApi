@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EshopWebApi.BusinessLayer</name>
+    </assembly>
+    <members>
+        <member name="T:EshopWebApi.BusinessLayer.Contexts.ProductServiceContext">
+            <summary>
+            Product service context
+            </summary>
+        </member>
+        <member name="P:EshopWebApi.BusinessLayer.Contexts.ProductServiceContext.DbContext">
+            <inheritdoc/>
+        </member>
+        <member name="P:EshopWebApi.BusinessLayer.Contexts.ProductServiceContext.Mapper">
+            <inheritdoc/>
+        </member>
+        <member name="M:EshopWebApi.BusinessLayer.Contexts.ProductServiceContext.#ctor(EshopWebApi.DataLayer.IDbContext,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EshopWebApi.BusinessLayer.Contexts.ProductServiceContext"/> class.
+            </summary>
+            <param name="dbContext">Database context</param>
+            <param name="mapper">Automapper</param>
+        </member>
+        <member name="T:EshopWebApi.BusinessLayer.Exceptions.NotFoundException">
+            <summary>
+            Not found exception
+            </summary>
+        </member>
+        <member name="M:EshopWebApi.BusinessLayer.Exceptions.NotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EshopWebApi.BusinessLayer.Exceptions.NotFoundException"/> class with specified error message
+            </summary>
+            <param name="message">Error message</param>
+        </member>
+        <member name="M:EshopWebApi.BusinessLayer.Exceptions.NotFoundException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EshopWebApi.BusinessLayer.Exceptions.NotFoundException"/> class
+            </summary>
+        </member>
+        <member name="T:EshopWebApi.BusinessLayer.Interfaces.Contexts.IProductServiceContext">
+            <summary>
+            Product service context
+            </summary>
+        </member>
+        <member name="P:EshopWebApi.BusinessLayer.Interfaces.Contexts.IProductServiceContext.DbContext">
+            <summary>
+            Database context
+            </summary>
+        </member>
+        <member name="P:EshopWebApi.BusinessLayer.Interfaces.Contexts.IProductServiceContext.Mapper">
+            <summary>
+            Automapper
+            </summary>
+        </member>
+        <member name="T:EshopWebApi.BusinessLayer.Interfaces.Services.IProductService">
+            <summary>
+            Handles business logic for Products
+            </summary>
+        </member>
+        <member name="M:EshopWebApi.BusinessLayer.Interfaces.Services.IProductService.GetAllProductsAsync">
+            <summary>
+            Gets all products
+            </summary>
+            <returns>A task that represents the asynchronous get operation. The task result contains <see cref="T:EshopWebApi.BusinessLayer.Models.ProductModel"/> collection</returns>
+        </member>
+        <member name="M:EshopWebApi.BusinessLayer.Interfaces.Services.IProductService.GetProductByIdAsync(System.Guid)">
+            <summary>
+            Gets product by id
+            </summary>
+            <param name="id">Product´s id</param>
+            <returns>A task that represents the asynchronous get operation. The task result contains <see cref="T:EshopWebApi.BusinessLayer.Models.ProductModel"/></returns>
+        </member>
+        <member name="M:EshopWebApi.BusinessLayer.Interfaces.Services.IProductService.UpdatePartialProductAsync(System.Guid,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{EshopWebApi.BusinessLayer.Models.ProductPartialModel})">
+            <summary>
+            Partial product´s update
+            </summary>
+            <param name="id">Product´s id</param>
+            <param name="jsonProductPatch">Json product patch object</param>
+            <returns>A task that represents the asynchronous update operation</returns>
+        </member>
+        <member name="T:EshopWebApi.BusinessLayer.Models.ProductModel">
+            <summary>
+            Product DTO model
+            </summary>
+        </member>
+        <member name="P:EshopWebApi.BusinessLayer.Models.ProductModel.Id">
+            <summary>
+            Product´s id
+            </summary>
+        </member>
+        <member name="P:EshopWebApi.BusinessLayer.Models.ProductModel.Name">
+            <summary>
+            Product´s name
+            </summary>
+        </member>
+        <member name="P:EshopWebApi.BusinessLayer.Models.ProductModel.ImgUri">
+            <summary>
+            Product´s image URI
+            </summary>
+        </member>
+        <member name="P:EshopWebApi.BusinessLayer.Models.ProductModel.Price">
+            <summary>
+            Product´s price
+            </summary>
+        </member>
+        <member name="P:EshopWebApi.BusinessLayer.Models.ProductModel.Description">
+            <summary>
+            Product´s description
+            </summary>
+        </member>
+        <member name="T:EshopWebApi.BusinessLayer.Models.ProductPartialModel">
+            <summary>
+            Product DTO partial model
+            </summary>
+        </member>
+        <member name="P:EshopWebApi.BusinessLayer.Models.ProductPartialModel.Description">
+            <summary>
+            Product´s description
+            </summary>
+        </member>
+        <member name="T:EshopWebApi.BusinessLayer.Services.ProductService">
+            <summary>
+            Handles business logic for Products
+            </summary>
+        </member>
+        <member name="F:EshopWebApi.BusinessLayer.Services.ProductService.context">
+            <summary>
+            Product service context
+            </summary>
+        </member>
+        <member name="M:EshopWebApi.BusinessLayer.Services.ProductService.#ctor(EshopWebApi.BusinessLayer.Interfaces.Contexts.IProductServiceContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EshopWebApi.BusinessLayer.Services.ProductService"/> class.
+            </summary>
+            <param name="context">Product service context</param>
+        </member>
+        <member name="M:EshopWebApi.BusinessLayer.Services.ProductService.GetAllProductsAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:EshopWebApi.BusinessLayer.Services.ProductService.GetProductByIdAsync(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EshopWebApi.BusinessLayer.Services.ProductService.UpdatePartialProductAsync(System.Guid,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{EshopWebApi.BusinessLayer.Models.ProductPartialModel})">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

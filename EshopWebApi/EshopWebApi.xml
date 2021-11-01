@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EshopWebApi</name>
+    </assembly>
+    <members>
+        <member name="T:EshopWebApi.DbContextFactory">
+            <summary>
+            Factory that creates database context instance
+            </summary>
+        </member>
+        <member name="M:EshopWebApi.DbContextFactory.CreateDbContext">
+            <summary>
+            Create auto mapper instance
+            </summary>
+            <returns>Auto mapper instance</returns>
+        </member>
+        <member name="M:EshopWebApi.DbContextFactory.SetInitialDb(EshopWebApi.DataLayer.IDbContext)">
+            <summary>
+            Initial setup for database
+            </summary>
+        </member>
+        <member name="T:EshopWebApi.Filters.EshopWebApiExceptionFilter">
+            <summary>
+            Exception filter that runs after an action has thrown an System.Exception.
+            </summary>
+        </member>
+        <member name="M:EshopWebApi.Filters.EshopWebApiExceptionFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:EshopWebApi.MapperFactory">
+            <summary>
+            Factory that creates mapper instance
+            </summary>
+        </member>
+        <member name="M:EshopWebApi.MapperFactory.CreateAutoMapper">
+            <summary>
+            Create auto mapper instance
+            </summary>
+            <returns>Auto mapper instance</returns>
+        </member>
+        <member name="T:EshopWebApi.ServerErrorObjectResult">
+            <summary>
+            Object result that encapsulates exceptions
+            </summary>
+        </member>
+        <member name="M:EshopWebApi.ServerErrorObjectResult.#ctor(System.Object,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EshopWebApi.ServerErrorObjectResult"/> class.
+            </summary>
+            <param name="value"></param>
+            <param name="statusCode">HTTP status code</param>
+        </member>
+        <member name="T:EshopWebApi.Startup">
+            <summary>
+            Start web api point
+            </summary>
+        </member>
+        <member name="P:EshopWebApi.Startup.Configuration">
+            <summary>
+            Represents a set of key/value application configuration properties.
+            </summary>
+        </member>
+        <member name="P:EshopWebApi.Startup.Environment">
+            <summary>
+            Provides information about the web hosting environment an application is running in
+            </summary>
+        </member>
+        <member name="M:EshopWebApi.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EshopWebApi.Startup"/> class.
+            </summary>
+        </member>
+        <member name="M:EshopWebApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+            </summary>
+        </member>
+        <member name="M:EshopWebApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+        </member>
+        <member name="T:EshopWebApi.Versions.v1.Controllers.ProductController">
+            <summary>
+            Product service
+            </summary>
+        </member>
+        <member name="M:EshopWebApi.Versions.v1.Controllers.ProductController.#ctor(EshopWebApi.BusinessLayer.Interfaces.Services.IProductService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EshopWebApi.Versions.v1.Controllers.ProductController"/> class.
+            </summary>
+            <param name="productService">Product service</param>
+        </member>
+        <member name="M:EshopWebApi.Versions.v1.Controllers.ProductController.GetAllProductsAsync">
+            <summary>
+            Gets all products
+            </summary>
+            <returns>Product´s collection</returns>
+        </member>
+        <member name="M:EshopWebApi.Versions.v1.Controllers.ProductController.GetProductByIdAsync(System.Guid)">
+            <summary>
+            Gets product by it´s id
+            </summary>
+            <param name="id">Product´s id</param>
+            <returns>Product detail</returns>
+        </member>
+        <member name="T:EshopWebApi.Versions.v2.Controllers.ProductController">
+            <summary>
+            Product service
+            </summary>
+        </member>
+        <member name="M:EshopWebApi.Versions.v2.Controllers.ProductController.#ctor(EshopWebApi.BusinessLayer.Interfaces.Services.IProductService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EshopWebApi.Versions.v2.Controllers.ProductController"/> class.
+            </summary>
+            <param name="productService">Product service</param>
+        </member>
+        <member name="M:EshopWebApi.Versions.v2.Controllers.ProductController.GetAllProductsAsync">
+            <summary>
+            Gets all products
+            </summary>
+            <returns>Product´s collection</returns>
+        </member>
+        <member name="M:EshopWebApi.Versions.v2.Controllers.ProductController.GetProductByIdAsync(System.Guid)">
+            <summary>
+            Gets product by it´s id
+            </summary>
+            <param name="id">Product´s id</param>
+            <returns>Product detail</returns>
+        </member>
+        <member name="M:EshopWebApi.Versions.v2.Controllers.ProductController.UpdatePartialProductAsync(System.Guid,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{EshopWebApi.BusinessLayer.Models.ProductPartialModel})">
+            <summary>
+            Updates product partially
+            </summary>
+            <param name="id">Product´s id</param>
+            <param name="jsonProductPartial">Partial product´s update represented by <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument"/> object</param>
+        </member>
+    </members>
+</doc>
