@@ -39,6 +39,21 @@
             </summary>
             <returns>Auto mapper instance</returns>
         </member>
+        <member name="T:EshopWebApi.Program">
+            <summary>
+            Start point to application
+            </summary>
+        </member>
+        <member name="M:EshopWebApi.Program.Main(System.String[])">
+            <summary>
+            Main method that runs
+            </summary>
+        </member>
+        <member name="M:EshopWebApi.Program.BuildWebHost(System.String[])">
+            <summary>
+            Builds web host
+            </summary>
+        </member>
         <member name="T:EshopWebApi.ServerErrorObjectResult">
             <summary>
             Object result that encapsulates exceptions
