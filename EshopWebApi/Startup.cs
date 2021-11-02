@@ -6,7 +6,6 @@ using EshopWebApi.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.JsonPatch;
-using Microsoft.AspNetCore.JsonPatch.Operations;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,7 +13,6 @@ using Swashbuckle.AspNetCore.Examples;
 using Swashbuckle.AspNetCore.Swagger;
 using System.IO;
 using System.Reflection;
-using System.Xml.XPath;
 
 namespace EshopWebApi
 {
@@ -63,20 +61,12 @@ namespace EshopWebApi
             });
 
             services.AddSwaggerGen(options =>
-{
-    options.MapType<JsonPatchDocument>(() => new Schema
-    {
-        Type = "object",
-        Example = new JsonPatchPersonRequestExample().GetExamples()
-    });
-    //     options.SchemaFilter<JsonPatchDocumentSchemaFilter>();
-    //  options.DocumentFilter<JsonPatchDocumentFilter>();
-    //      var provider = services.BuildServiceProvider().GetRequiredService<IApiVersionDescriptionProvider>();
-    options.SwaggerDoc("v1", new Info { Version = "v1", Title = $"{this.GetType().Assembly.GetName().Name}", Description = "This version contains methods to get products from database." });
-    options.SwaggerDoc("v2", new Info { Version = "v2", Title = $"{this.GetType().Assembly.GetName().Name}", Description = "This version contains ability to update product." });
-    options.IncludeXmlComments(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), $"{this.GetType().Assembly.GetName().Name}.xml"));
-    options.IncludeXmlComments(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), $"EshopWebApi.BusinessLayer.xml"));
-});
+            {
+                options.SwaggerDoc("v1", new Info { Version = "v1", Title = $"{this.GetType().Assembly.GetName().Name}", Description = "This version contains methods to get products from database." });
+                options.SwaggerDoc("v2", new Info { Version = "v2", Title = $"{this.GetType().Assembly.GetName().Name}", Description = "This version contains methods to get products from database including ability to update product." });
+                options.IncludeXmlComments(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), $"{this.GetType().Assembly.GetName().Name}.xml"));
+                options.IncludeXmlComments(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), $"EshopWebApi.BusinessLayer.xml"));
+            });
 
             services.AddSingleton(opt => new MapperFactory().CreateAutoMapper());
             services.AddSingleton(opt => new DbContextFactory().CreateDbContext());
@@ -103,27 +93,6 @@ namespace EshopWebApi
                     options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName);
                 }
             });
-        }
-
-        public class JsonPatchPersonRequestExample : IExamplesProvider
-        {
-            public object GetExamples()
-            {
-                return new[]
-                {
-                new  Microsoft.AspNetCore.JsonPatch.Operations.Operation
-                {
-                    op = "replace",
-                    path = "/firstname",
-                    value = "Steve"
-                },
-                new Microsoft.AspNetCore.JsonPatch.Operations.Operation
-                {
-                    op = "remove",
-                    path = "/income"
-                }
-            };
-            }
         }
     }
 }
