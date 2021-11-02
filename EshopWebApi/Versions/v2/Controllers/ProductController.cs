@@ -65,7 +65,6 @@ namespace EshopWebApi.Versions.v2.Controllers
         [HttpPatch]
         [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
         [Route("UpdatePartialProduct/{id}")]
-        [SwaggerRequestExample(typeof(Operation), typeof(JsonPatchPersonRequestExample))]
         public async Task<IActionResult> UpdatePartialProductAsync(Guid id, [FromBody] JsonPatchDocument<ProductPartialModel> jsonProductPartial)
         {
             await productService.UpdatePartialProductAsync(id, jsonProductPartial);
