@@ -2,13 +2,10 @@
 using EshopWebApi.BusinessLayer.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
-using Microsoft.AspNetCore.JsonPatch.Operations;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Examples;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using static EshopWebApi.Startup;
 
 namespace EshopWebApi.Versions.v2.Controllers
 {
@@ -38,7 +35,6 @@ namespace EshopWebApi.Versions.v2.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<ProductModel>), StatusCodes.Status200OK)]
         [Route("GetAllProducts")]
-        [MapToApiVersion("2")]
         public async Task<IActionResult> GetAllProductsAsync()
         {
             return Ok(await productService.GetAllProductsAsync());
